@@ -1,13 +1,22 @@
 const select = (element) => document.querySelector(element);
 const selectAll = (element) => document.querySelectorAll(element);
 let modalQtd = 1;
+let modalKey;
+let pizzas;
 
-//LISTAGEM DAS PIZZAS
+//GET CART BY SESSION STORAGE
+sessionStorage.getItem("pizza_cart")
+	? (cart = sessionStorage.getItem("pizza_cart"))
+	: (cart = []);
+
+//LIST PIZZAS
+
 const api = fetch(
 	"https://fernandonetom.github.io/compra-de-pizzas/apiData.json"
 )
 	.then((response) => response.json())
 	.then((data) => {
+		pizzas = data;
 		data.map((item, index) => {
 			let pizzaItem = select(".models .pizza-item").cloneNode(true);
 			pizzaItem.setAttribute("data-key", index);
@@ -22,6 +31,7 @@ const api = fetch(
 				e.preventDefault();
 				modalQtd = 1;
 				let key = e.target.closest(".pizza-item").getAttribute("data-key");
+				modalKey = key;
 
 				select(".pizzaBig img").src = data[key].img;
 				select(".pizzaInfo h1").innerHTML = data[key].name;
@@ -48,7 +58,7 @@ const api = fetch(
 		});
 	});
 
-//EVENTOS DOS MODAL
+//MODAL EVENTS
 const closeModal = () => {
 	select(".pizzaWindowArea").style.opacity = 0;
 	setTimeout(() => {
@@ -61,7 +71,7 @@ selectAll(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach(
 	}
 );
 
-//CONTROLE DE QUANTIDADE
+//CONTROLS
 select(".pizzaInfo--qtmenos").addEventListener("click", () => {
 	if (modalQtd > 1) {
 		modalQtd--;
@@ -77,4 +87,16 @@ selectAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
 		select(".pizzaInfo--size.selected").classList.remove("selected");
 		size.classList.add("selected");
 	});
+});
+
+//ADD TO CART
+select(".pizzaInfo--addButton").addEventListener("click", () => {
+	let size = parseInt(select(".pizzaInfo--size").getAttribute("data-key"));
+	cart.push({
+		id: pizzas[modalKey].id,
+		size,
+		qt: modalQtd,
+	});
+	closeModal();
+	//sessionStorage.setItem("pizza_cart", cart);
 });
