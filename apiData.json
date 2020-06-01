@@ -1,5 +1,5 @@
-{
-	"0": {
+[
+	{
 		"id": 1,
 		"name": "Mussarela",
 		"img": "images/pizza.png",
@@ -7,7 +7,7 @@
 		"sizes": ["100g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"1": {
+	{
 		"id": 2,
 		"name": "Calabresa",
 		"img": "images/pizza2.png",
@@ -15,7 +15,7 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"2": {
+	{
 		"id": 3,
 		"name": "Quatro Queijos",
 		"img": "images/pizza3.png",
@@ -23,7 +23,7 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"3": {
+	{
 		"id": 4,
 		"name": "Americana",
 		"img": "images/pizza4.png",
@@ -31,7 +31,7 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"4": {
+	{
 		"id": 5,
 		"name": "Sorvete",
 		"img": "images/pizza5.png",
@@ -39,7 +39,7 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"5": {
+	{
 		"id": 6,
 		"name": "Moda da Casa",
 		"img": "images/pizza6.png",
@@ -47,7 +47,7 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	},
-	"6": {
+	{
 		"id": 7,
 		"name": "Chocolate",
 		"img": "images/pizza7.png",
@@ -55,4 +55,4 @@
 		"sizes": ["320g", "530g", "860g"],
 		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
 	}
-}
+]
