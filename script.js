@@ -1,6 +1,10 @@
 const select = (element) => document.querySelector(element);
 const selectAll = (element) => document.querySelectorAll(element);
 
+const api = fetch("https://fernandonetom.github.io/compra-de-pizzas/pizzas.js")
+	.then((response) => response.text())
+	.then((data) => console.log(data));
+
 pizzaJson.map((item, index) => {
 	let pizzaItem = select(".models .pizza-item").cloneNode(true);
 
