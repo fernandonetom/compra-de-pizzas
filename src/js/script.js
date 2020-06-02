@@ -114,17 +114,27 @@ select(".pizzaInfo--addButton").addEventListener("click", () => {
 	saveCart();
 });
 const saveCart = () => {
-	//sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
+	sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
 	console.log("salvo");
 };
 const updateCart = () => {
+	select(".menu-openner span").innerHTML = cart.length;
 	if (cart.length > 0) {
 		select("aside").classList.add("show");
 		select(".cart").innerHTML = "";
+
+		let subtotal = 0;
+		let desconto = 0;
+		let total = 0;
+
 		cart.forEach((item, index) => {
 			let pizzaItem = pizzas.find((item) => {
 				return item.id == cart[index].id;
 			});
+
+			//CALCULING SUBTOTAL
+			subtotal += pizzaItem.price * item.qt;
+
 			let cartItem = select(".models .cart--item").cloneNode(true);
 			pizzaSize = { 0: "P", 1: "M", 2: "G" };
 
@@ -154,7 +164,42 @@ const updateCart = () => {
 
 			select(".cart").append(cartItem);
 		});
+
+		desconto = (subtotal * 0.1).toFixed(2);
+		total = (subtotal - desconto).toFixed(2);
+
+		//SHOWING TOTALS
+		select(".subtotal span:last-child").innerHTML = "R$ " + subtotal.toFixed(2);
+		select(".desconto span:last-child").innerHTML = "R$ " + desconto;
+		select(".total span:last-child").innerHTML = "R$ " + total;
 	} else {
 		select("aside").classList.remove("show");
+		select("aside").style.left = "100vw";
 	}
 };
+select(".menu-openner").addEventListener("click", () => {
+	if (cart.length > 0) {
+		select("aside").style.left = 0;
+	}
+});
+select(".menu-closer").addEventListener("click", () => {
+	select("aside").style.left = "100vw";
+});
+select(".cart--finalizar").addEventListener("click", () => {
+	cart = [];
+	updateCart();
+	saveCart();
+	select(".success.pizzaWindowArea").style.opacity = 0;
+	select(".success.pizzaWindowArea").style.display = "flex";
+	setTimeout(() => {
+		select(".success.pizzaWindowArea").style.opacity = 1;
+	}, 200);
+	select(".success.pizzaWindowArea").style.display = "flex";
+
+	setTimeout(() => {
+		select(".success.pizzaWindowArea").style.opacity = 0;
+		setTimeout(() => {
+			select(".success.pizzaWindowArea").style.display = "none";
+		}, 200);
+	}, 5000);
+});
