@@ -5,15 +5,15 @@
 		"img": "images/pizza.png",
 		"price": [18.9, 20.9, 22.9],
 		"sizes": ["100g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE E MUSSARELA (2 CAMADAS)"
 	},
 	{
 		"id": 2,
 		"name": "Calabresa",
 		"img": "images/pizza2.png",
-		"price": [18.9, 20.9, 22.9],
+		"price": [18.9, 20.9, 23.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA E CALABRESA"
 	},
 	{
 		"id": 3,
@@ -21,7 +21,7 @@
 		"img": "images/pizza3.png",
 		"price": [18.9, 20.9, 22.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA, PROVOLONE, PARMESÃO E CATUPIRY"
 	},
 	{
 		"id": 4,
@@ -29,15 +29,15 @@
 		"img": "images/pizza4.png",
 		"price": [18.9, 20.9, 22.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA, BACON, CALABRESA, OVOS E CEBOLA"
 	},
 	{
 		"id": 5,
 		"name": "Sorvete",
 		"img": "images/pizza5.png",
-		"price": [18.9, 20.9, 22.9],
+		"price": [19.9, 21.9, 24.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA, BACON, CALABRESA, OVOS E CEBOLA"
 	},
 	{
 		"id": 6,
@@ -45,14 +45,14 @@
 		"img": "images/pizza6.png",
 		"price": [18.9, 20.9, 22.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA, BACON, CALABRESA, OVOS E CEBOLA"
 	},
 	{
 		"id": 7,
 		"name": "Chocolate",
 		"img": "images/pizza7.png",
-		"price": [18.9, 20.9, 22.9],
+		"price": [19.9, 22.9, 26.9],
 		"sizes": ["320g", "530g", "860g"],
-		"description": "Descrição da pizza em mais de uma linha muito legal bem interessante"
+		"description": "MOLHO DE TOMATE, MUSSARELA, BACON, CALABRESA, OVOS E CEBOLA"
 	}
 ]

@@ -22,9 +22,7 @@ const api = fetch(
 			pizzaItem.setAttribute("data-key", index);
 			pizzaItem.querySelector(".pizza-item--img img").src = item.img;
 			pizzaItem.querySelector(".pizza-item--name").innerHTML = item.name;
-			pizzaItem.querySelector(
-				".pizza-item--price"
-			).innerHTML = `R$ ${item.price.toFixed(2)}`;
+			pizzaItem.querySelector(".pizza-item--price").innerHTML = "";
 			pizzaItem.querySelector(".pizza-item--desc").innerHTML = item.description;
 
 			pizzaItem.querySelector("a").addEventListener("click", (e) => {
@@ -37,7 +35,7 @@ const api = fetch(
 				select(".pizzaInfo h1").innerHTML = data[key].name;
 				select(".pizzaInfo--actualPrice").innerHTML = `R$ ${data[
 					key
-				].price.toFixed(2)}`;
+				].price[2].toFixed(2)}`;
 				select(".pizzaInfo .pizzaInfo--desc").innerHTML = data[key].description;
 				select(".pizzaInfo--size.selected").classList.remove("selected");
 				selectAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
@@ -86,6 +84,12 @@ selectAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
 	size.addEventListener("click", (e) => {
 		select(".pizzaInfo--size.selected").classList.remove("selected");
 		size.classList.add("selected");
+
+		let sizeKey = size.getAttribute("data-key");
+
+		select(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzas[modalKey].price[
+			sizeKey
+		].toFixed(2)}`;
 	});
 });
 
@@ -133,7 +137,7 @@ const updateCart = () => {
 			});
 
 			//CALCULING SUBTOTAL
-			subtotal += pizzaItem.price * item.qt;
+			subtotal += pizzaItem.price[item.size] * item.qt;
 
 			let cartItem = select(".models .cart--item").cloneNode(true);
 			pizzaSize = { 0: "P", 1: "M", 2: "G" };
