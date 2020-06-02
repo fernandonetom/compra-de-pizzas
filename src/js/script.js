@@ -110,5 +110,5 @@ select(".pizzaInfo--addButton").addEventListener("click", () => {
 		});
 	}
 	closeModal();
-	// sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
+	sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
 });
