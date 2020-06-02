@@ -91,12 +91,24 @@ selectAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
 
 //ADD TO CART
 select(".pizzaInfo--addButton").addEventListener("click", () => {
-	let size = parseInt(select(".pizzaInfo--size").getAttribute("data-key"));
-	cart.push({
-		id: pizzas[modalKey].id,
-		size,
-		qt: modalQtd,
-	});
+	let size = parseInt(
+		select(".pizzaInfo--size.selected").getAttribute("data-key")
+	);
+
+	let indentifier = pizzas[modalKey].id + "@" + size;
+
+	let searchKey = cart.findIndex((item) => item.indentifier == indentifier);
+
+	if (searchKey > -1) {
+		cart[searchKey].qt += modalQtd;
+	} else {
+		cart.push({
+			indentifier,
+			id: pizzas[modalKey].id,
+			size,
+			qt: modalQtd,
+		});
+	}
 	closeModal();
-	sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
+	// sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
 });
