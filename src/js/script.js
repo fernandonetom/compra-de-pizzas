@@ -6,7 +6,7 @@ let pizzas;
 
 //GET CART BY SESSION STORAGE
 sessionStorage.getItem("pizza_cart")
-	? (cart = sessionStorage.getItem("pizza_cart"))
+	? (cart = JSON.parse(sessionStorage.getItem("pizza_cart")))
 	: (cart = []);
 
 //LIST PIZZAS
@@ -98,5 +98,5 @@ select(".pizzaInfo--addButton").addEventListener("click", () => {
 		qt: modalQtd,
 	});
 	closeModal();
-	//sessionStorage.setItem("pizza_cart", cart);
+	sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
 });
