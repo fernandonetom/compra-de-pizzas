@@ -5,18 +5,20 @@ let modalKey;
 let pizzas;
 
 //GET CART BY SESSION STORAGE
-sessionStorage.getItem("pizza_cart")
-	? (cart = JSON.parse(sessionStorage.getItem("pizza_cart")))
+localStorage.getItem("pizza_cart")
+	? (cart = JSON.parse(localStorage.getItem("pizza_cart")))
 	: (cart = []);
 
 //LIST PIZZAS
-
 const api = fetch(
 	"https://fernandonetom.github.io/compra-de-pizzas/apiData.json"
 )
 	.then((response) => response.json())
 	.then((data) => {
 		pizzas = data;
+
+		updateCart();
+
 		data.map((item, index) => {
 			let pizzaItem = select(".models .pizza-item").cloneNode(true);
 			pizzaItem.setAttribute("data-key", index);
@@ -118,9 +120,9 @@ select(".pizzaInfo--addButton").addEventListener("click", () => {
 	saveCart();
 });
 const saveCart = () => {
-	sessionStorage.setItem("pizza_cart", JSON.stringify(cart));
-	console.log("salvo");
+	localStorage.setItem("pizza_cart", JSON.stringify(cart));
 };
+
 const updateCart = () => {
 	select(".menu-openner span").innerHTML = cart.length;
 	if (cart.length > 0) {
@@ -181,6 +183,7 @@ const updateCart = () => {
 		select("aside").style.left = "100vw";
 	}
 };
+
 select(".menu-openner").addEventListener("click", () => {
 	if (cart.length > 0) {
 		select("aside").style.left = 0;
